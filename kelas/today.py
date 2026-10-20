@@ -37,8 +37,8 @@
 #angka = tuple(ubah)
 #print(angka)
 
-lemari = ("baju", "celana", "sepatu")
-(atasan, *bawahan) = lemari
+# lemari = ("baju", "celana", "sepatu")
+# (atasan, *bawahan) = lemari
 
-print(bawahan)
+# print(bawahan)
 

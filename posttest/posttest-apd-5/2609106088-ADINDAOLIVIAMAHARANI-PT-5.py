@@ -48,12 +48,14 @@ list_films = [["Whiplash", "2014", "Damien Chazelle", "107 minutes", "4.4"],
 cancel = ['b', 'B']
 watchlist_user = []
 added_films = []
+deleted_film = []
 while True:
       print("[1]list films\n"
             "[2]watchlist")
       if valid_admin := (username == users[0][0]):
             print("[3]add films\n"
-            "[4]edit data films")
+            "[4]edit data films\n"
+            "[5]delete film")
       print ("[0]exit")
       choices = input ("choose between the option: ")
     
@@ -92,6 +94,7 @@ while True:
 
         if input_index.lower() == 'b':
             continue
+
         elif input_index in valid_index:
             index = int(input_index) - 1
             title_film = list_films[index][0]
@@ -131,7 +134,7 @@ while True:
             for i, film in enumerate(list_films):
                 print(f"{i + 1}. {film[0]}")
 
-            input_index = input("pick a films to change the data(b to back): ")
+            input_index = input("pick an index films to change the data(b to back): ")
 
             if input_index.lower() in cancel:
                 continue
@@ -156,6 +159,22 @@ while True:
                 print("Data successfully updated!")
             else:
                 print("invalid input.")
+
+      elif choices == "5":
+            for i, film in enumerate(list_films):
+                print(f"{i + 1}. {film[0]}")
+
+            valid_index = [str(i + 1) for i in range(len(list_films))]
+
+            input_index = input("pick an index films to delete(b to back): ")
+            if input_index.lower() in cancel:
+                continue
+                
+            if input_index in valid_index:
+                deleted_film = list_films.pop(int(input_index) - 1)
+                print(f"Film {deleted_film[0]} berhasil dihapus!")
+            else:
+                print("Pilihan tidak valid!")
 
       elif choices == "0":
         break
